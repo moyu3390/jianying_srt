@@ -1,22 +1,33 @@
 # jianying_srt
 
 ## Introduction
-剪映是字节推出的一款视频剪辑软件，它可以利用AI自动识别字幕，十分强大。但是剪映并没有提供字幕的导出功能，如果不做处理的话只能在剪映软件内部使用。好在剪映同时也生成了json格式的字幕文件，利用这个文件我们就可以将字幕转换为常见的srt格式。
+
+剪映是字节推出的一款视频剪辑软件，它可以利用AI自动识别字幕，十分强大。但是剪映并没有提供字幕的导出功能，如果不做处理的话只能在剪映软件内部使用,
+不太方便。
+
+好在剪映同时也生成了json格式的字幕文件，利用这个文件我们就可以将字幕转换为常见的srt格式字幕。
 
 ## Usage
-首先找到剪映默认的项目文件夹，一般在安装目录的同级，例如我将剪映装在`D:\Program Files\JianyingPro`，那么项目文件就在`D:\Program Files\JianyingPro\项目日期`，对应的项目文件夹下的`draft_content.json`就是字幕文件。
-启动`jianying_srt.exe`，将该文件拖进去（或输入该文件的绝对路径），程序自动进行转换，按照提示指定生成的srt文件的输出路径即可。
+
+首先找到剪映默认的项目文件夹，一般在安装目录的同级，例如我将剪映装在`D:\Program Files\JianyingPro`
+，那么项目文件就在`D:\Program Files\JianyingPro\项目日期`，对应的项目文件夹下的`draft_content.json`就是字幕文件。
+
+执行命令行`jianying_srt.exe test.json test.srt`, 程序自动进行转换，按照提示指定生成的srt文件的输出路径即可。
+
+如果输入文件的路径带空格, 需要加上双引号.
 
 ## Example
-项目提供的draft_content.json为测试文件。
+
+项目提供的examples/下为测试文件。
+
 ```bash
 jianying_srt.exe
-输入json文件绝对路径或拖拽到此:
-draft_content.json
-转换完成. 生成srt文件到:
-draft_content.srt
-输出完成. 按任意键退出.
+使用方法: jianying_srt 输入文件 输出文件
 
+jianying_srt.exe examples/draft_content.json examples/draft_content.srt
+读取字幕信息完成.
+读取轨道信息完成.
+输出完成.
 ```
 
 ## Methods
