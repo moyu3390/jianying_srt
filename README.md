@@ -7,6 +7,18 @@
 首先找到剪映默认的项目文件夹，一般在安装目录的同级，例如我将剪映装在`D:\Program Files\JianyingPro`，那么项目文件就在`D:\Program Files\JianyingPro\项目日期`，对应的项目文件夹下的`draft_content.json`就是字幕文件。
 启动`jianying_srt.exe`，将该文件拖进去（或输入该文件的绝对路径），程序自动进行转换，按照提示指定生成的srt文件的输出路径即可。
 
+## Example
+项目提供的draft_content.json为测试文件。
+```bash
+jianying_srt.exe
+输入json文件绝对路径或拖拽到此:
+draft_content.json
+转换完成. 生成srt文件到:
+draft_content.srt
+输出完成. 按任意键退出.
+
+```
+
 ## Methods
 程序使用Rust语言开发。使用了json和regex两个标准库。
 
