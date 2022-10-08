@@ -1,0 +1,552 @@
+1
+00:00:02,700 --> 00:00:06,066
+let's explore cargo the rust package manager
+
+2
+00:00:06,466 --> 00:00:10,133
+the first use of cargo is to create new projects
+
+3
+00:00:10,133 --> 00:00:14,366
+if I run cargo new followed by a name of the project
+
+4
+00:00:14,366 --> 00:00:16,933
+let's go our project example
+
+5
+00:00:17,300 --> 00:00:20,700
+it will create a new project in my current directory
+
+6
+00:00:20,700 --> 00:00:23,100
+so now I can go to the example folder
+
+7
+00:00:23,166 --> 00:00:26,766
+in here I'll find my brand new rust project
+
+8
+00:00:26,800 --> 00:00:29,666
+and it will also initialize a
+
+9
+00:00:29,666 --> 00:00:31,466
+new git repository for me
+
+10
+00:00:31,766 --> 00:00:32,366
+there are
+
+11
+00:00:32,366 --> 00:00:35,399
+a couple of options that we can pass to cargo new
+
+12
+00:00:35,466 --> 00:00:37,099
+to explore them we can
+
+13
+00:00:37,500 --> 00:00:39,566
+type cargo new dush dush help
+
+14
+00:00:40,200 --> 00:00:41,666
+and this will list
+
+15
+00:00:41,900 --> 00:00:44,666
+the options that are valid for this command
+
+16
+00:00:44,700 --> 00:00:46,900
+for example we can specify
+
+17
+00:00:46,900 --> 00:00:50,333
+a different version control system other than git
+
+18
+00:00:50,366 --> 00:00:53,166
+or we can tell cargo to create a new
+
+19
+00:00:53,333 --> 00:00:56,866
+library application instead of an executable one
+
+20
+00:00:56,866 --> 00:01:01,166
+now let's open our new project in visuals to do code
+
+21
+00:01:01,166 --> 00:01:03,199
+so to do that I'll just
+
+22
+00:01:04,000 --> 00:01:06,300
+type code and current erectory
+
+23
+00:01:07,800 --> 00:01:09,400
+this will open up a new window
+
+24
+00:01:09,566 --> 00:01:11,733
+let me just move this to another workspace
+
+25
+00:01:11,733 --> 00:01:12,733
+alright great
+
+26
+00:01:12,766 --> 00:01:16,566
+at the route of every rust project there is a
+
+27
+00:01:16,600 --> 00:01:18,700
+cargo dot tomo file
+
+28
+00:01:18,966 --> 00:01:20,099
+in this file
+
+29
+00:01:20,100 --> 00:01:24,200
+we can specify the dependencies for our project
+
+30
+00:01:24,266 --> 00:01:28,599
+a metadata for the project and some compiler settings
+
+31
+00:01:28,733 --> 00:01:30,533
+in the rust world
+
+32
+00:01:30,666 --> 00:01:33,099
+packages are called crates
+
+33
+00:01:33,100 --> 00:01:35,666
+and in the dependency section here
+
+34
+00:01:35,900 --> 00:01:40,866
+we can list the crates that our project will need
+
+35
+00:01:41,300 --> 00:01:44,900
+the central registry for crates is the crates
+
+36
+00:01:44,933 --> 00:01:46,133
+or your website
+
+37
+00:01:46,300 --> 00:01:47,600
+that we can find here
+
+38
+00:01:47,700 --> 00:01:49,500
+and on the main page
+
+39
+00:01:49,500 --> 00:01:52,566
+we see a list of the most downloaded crates
+
+40
+00:01:52,566 --> 00:01:55,266
+so let's go and look at the most downloaded crate
+
+41
+00:01:55,266 --> 00:01:57,133
+which is the run crate
+
+42
+00:01:57,566 --> 00:02:01,266
+if we want to use this in our package
+
+43
+00:02:01,333 --> 00:02:04,933
+we just have to copy this line at the top
+
+44
+00:02:05,133 --> 00:02:07,499
+and put it in our cargo tomo file
+
+45
+00:02:07,500 --> 00:02:10,666
+so we just come here and under dependence is
+
+46
+00:02:10,700 --> 00:02:11,733
+we paste the
+
+47
+00:02:12,366 --> 00:02:15,699
+create name followed by the version that we would like
+
+48
+00:02:16,000 --> 00:02:19,933
+we can specify also just a part of the version
+
+49
+00:02:19,933 --> 00:02:21,499
+and it will still work
+
+50
+00:02:21,600 --> 00:02:23,300
+notice that when I
+
+51
+00:02:23,533 --> 00:02:26,566
+based at the new dependency I got this dumb up here
+
+52
+00:02:26,566 --> 00:02:28,333
+and it also shows me
+
+53
+00:02:28,533 --> 00:02:31,199
+all of the possible versions of this crate
+
+54
+00:02:31,400 --> 00:02:34,466
+this is a very nice feature that is provided by a
+
+55
+00:02:34,500 --> 00:02:37,166
+separate extension called crates
+
+56
+00:02:37,166 --> 00:02:41,699
+so if we look for crates we find this extension and
+
+57
+00:02:41,900 --> 00:02:42,933
+if you install it
+
+58
+00:02:42,933 --> 00:02:44,766
+you will get this nice feature
+
+59
+00:02:44,766 --> 00:02:47,166
+every time you are in your cargo tomo file
+
+60
+00:02:47,400 --> 00:02:51,300
+okay now let's see how we can build our project
+
+61
+00:02:51,300 --> 00:02:53,166
+if we head back to the terminal
+
+62
+00:02:53,266 --> 00:02:56,466
+all we have to do is type cargo build
+
+63
+00:02:56,966 --> 00:02:58,899
+and it will go ahead
+
+64
+00:02:58,966 --> 00:03:01,866
+look at the dependencies of our project
+
+65
+00:03:01,966 --> 00:03:04,566
+pull them and their dependencies
+
+66
+00:03:04,700 --> 00:03:05,933
+compile everything
+
+67
+00:03:06,166 --> 00:03:09,933
+link everything together and output a binary
+
+68
+00:03:10,000 --> 00:03:12,733
+it doesn't get much easier than that
+
+69
+00:03:12,866 --> 00:03:17,333
+and if we want to run our project we can use cargo run
+
+70
+00:03:18,366 --> 00:03:21,166
+so it will again build the project
+
+71
+00:03:21,166 --> 00:03:23,733
+but after it compiles and links everything
+
+72
+00:03:23,733 --> 00:03:26,866
+it will go ahead and run the binary
+
+73
+00:03:27,333 --> 00:03:30,499
+we see that for all new rust projects
+
+74
+00:03:30,666 --> 00:03:31,399
+we just
+
+75
+00:03:31,400 --> 00:03:34,800
+get a hello world printed from the main function
+
+76
+00:03:35,100 --> 00:03:37,966
+but this is not all that cargo can do
+
+77
+00:03:37,966 --> 00:03:40,733
+we can also use cargo to install
+
+78
+00:03:40,766 --> 00:03:44,533
+rust binaries that can be used system wide
+
+79
+00:03:45,166 --> 00:03:46,533
+later in this course
+
+80
+00:03:46,533 --> 00:03:50,199
+we will be using a 2 called cargo expand
+
+81
+00:03:50,300 --> 00:03:51,800
+if we come back to
+
+82
+00:03:51,900 --> 00:03:55,366
+crease dotayo and look for cargo expand
+
+83
+00:03:55,666 --> 00:03:57,199
+it pops up at the top
+
+84
+00:03:57,200 --> 00:03:58,666
+if we click to it
+
+85
+00:03:59,000 --> 00:04:02,933
+we see that it has an installation guide
+
+86
+00:04:02,933 --> 00:04:06,999
+and it tells us to run cargo in style cargo expand
+
+87
+00:04:07,066 --> 00:04:09,533
+let's go ahead and install it
+
+88
+00:04:09,533 --> 00:04:13,366
+so we just paste cargo in style cargo expand
+
+89
+00:04:13,366 --> 00:04:14,733
+and we run that
+
+90
+00:04:15,100 --> 00:04:16,700
+it will take a while because
+
+91
+00:04:16,700 --> 00:04:19,333
+cargo expand has a lot of dependencies
+
+92
+00:04:19,733 --> 00:04:21,866
+and after a quick fast forward
+
+93
+00:04:21,866 --> 00:04:25,199
+I have cargo expand installed on my system
+
+94
+00:04:25,333 --> 00:04:25,999
+right now
+
+95
+00:04:26,000 --> 00:04:29,100
+it doesn't really matter what cargo expand does
+
+96
+00:04:29,100 --> 00:04:32,366
+we will be using it in future videos
+
+97
+00:04:32,766 --> 00:04:35,099
+so now we can try and use it
+
+98
+00:04:35,100 --> 00:04:38,866
+so if we run cargo with the expand command
+
+99
+00:04:39,066 --> 00:04:40,666
+oh we get an error
+
+100
+00:04:40,666 --> 00:04:46,066
+it tells me thata 2 chain for the nightly x8664
+
+101
+00:04:46,866 --> 00:04:50,466
+Linux is not installed so what does that mean
+
+102
+00:04:50,733 --> 00:04:52,866
+rest is released
+
+103
+00:04:52,866 --> 00:04:53,799
+through 3
+
+104
+00:04:53,800 --> 00:04:57,500
+different channels with different levels of stability
+
+105
+00:04:58,133 --> 00:05:02,133
+there is stable which is the one you get by default
+
+106
+00:05:02,166 --> 00:05:04,733
+it is the currently supported version
+
+107
+00:05:04,900 --> 00:05:06,666
+and as the name suggests
+
+108
+00:05:06,666 --> 00:05:09,133
+it is the stable release of the language
+
+109
+00:05:09,133 --> 00:05:11,466
+that is meant to be used in production
+
+110
+00:05:11,733 --> 00:05:13,566
+then there is bitter
+
+111
+00:05:13,933 --> 00:05:18,099
+bitter is the candidate for the next stable version
+
+112
+00:05:18,200 --> 00:05:21,100
+and lastly there is nightly
+
+113
+00:05:21,466 --> 00:05:25,166
+nightly is the head of the master branch
+
+114
+00:05:25,400 --> 00:05:28,133
+where most of the development takes place
+
+115
+00:05:28,300 --> 00:05:31,266
+so nightly is very cutting edge
+
+116
+00:05:31,266 --> 00:05:33,333
+but it can be quite unstable
+
+117
+00:05:33,533 --> 00:05:36,199
+because the cargo expand
+
+118
+00:05:36,200 --> 00:05:36,900
+command
+
+119
+00:05:36,900 --> 00:05:40,366
+is using some unstable features of the compiler
+
+120
+00:05:40,366 --> 00:05:42,866
+it requires the nightly 2 chain
+
+121
+00:05:43,100 --> 00:05:45,000
+we can manage the different
+
+122
+00:05:45,000 --> 00:05:48,066
+2 chains that we have using the rest up to
+
+123
+00:05:48,066 --> 00:05:51,966
+so if we say rest up to chain list
+
+124
+00:05:52,533 --> 00:05:54,366
+we get the list of all the 2 chains
+
+125
+00:05:54,366 --> 00:05:57,566
+currently I only have stable installed
+
+126
+00:05:57,566 --> 00:06:00,499
+luckily the error that I got up here was kind
+
+127
+00:06:00,500 --> 00:06:01,400
+enough to tell me
+
+128
+00:06:01,400 --> 00:06:03,500
+exactly what 2 chain I need
+
+129
+00:06:03,566 --> 00:06:06,933
+so all I have to do is call rostop
+
+130
+00:06:07,533 --> 00:06:08,399
+2 chain
+
+131
+00:06:08,733 --> 00:06:12,933
+install and past the name of the 2 chain that I need
+
+132
+00:06:13,466 --> 00:06:16,133
+this will go ahead and install
+
+133
+00:06:16,366 --> 00:06:19,866
+cargo and rust sea and everything necessary
+
+134
+00:06:20,366 --> 00:06:23,066
+for the nightly rest 2 chain
+
+135
+00:06:23,366 --> 00:06:28,166
+now if I run rest up to chain list
+
+136
+00:06:28,500 --> 00:06:30,500
+we see that I have 2 to chains
+
+137
+00:06:30,500 --> 00:06:32,866
+the stable and the nightly end
+
+138
+00:06:32,866 --> 00:06:34,766
+stable is the default one
+
