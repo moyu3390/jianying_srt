@@ -37,7 +37,7 @@ fn json2srt(subtitle: &String, srt_out: &String) {
         let re = Regex::new(r"<.*?>").unwrap();
 
         let content = re.replace_all(content, "");
-        let content = content.to_string() + "\n";
+        let content = content[1..content.len() - 1].to_string() + "\n";
         contents.push(content);
     }
     println!("读取字幕信息完成.");
