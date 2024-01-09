@@ -2,17 +2,18 @@ use std::fs;
 use std::env;
 use std::io::stdin;
 use std::io::Write;
-use regex::Regex;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     match args.len() {
         1 => {
-            println!("使用方法: jianying_srt 输入文件 输出文件");
+            println!("使用方法1: jianying_srt 输入文件");
+            println!("使用方法2: jianying_srt 输入文件 输出文件");
             println!("按任意键退出.");
             let mut temp = String::new();
             stdin().read_line(&mut temp).expect("Failed to read line.");
         },
+        2 => json2srt(&args[1], &String::from("test.srt")),
         3 => json2srt(&args[1], &args[2]),
         _ => {
             println!("错误, 执行jianying_srt.exe查看使用方法.");
@@ -34,11 +35,8 @@ fn json2srt(subtitle: &String, srt_out: &String) {
     let mut contents: Vec<String> = Vec::new();
     for i in 0..texts.len() {
         let content = texts[i]["content"].as_str().expect("Cannot convert string.");
-        let re = Regex::new(r"<.*?>").unwrap();
-
-        let content = re.replace_all(content, "");
-        let content = content[1..content.len() - 1].to_string() + "\n";
-        contents.push(content);
+        let content = json::parse(&content).unwrap();
+        contents.push(content["text"].to_string());
     }
     println!("读取字幕信息完成.");
     // 获取轨道信息
